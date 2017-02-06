@@ -33,6 +33,8 @@ gem 'turbolinks', '~> 5'
 # gem 'bcrypt', '~> 3.1.7'
 # use bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
+# use Skylight to monitor app's performance
+gem 'skylight'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
