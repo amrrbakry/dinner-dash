@@ -35,6 +35,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'skylight'
 # use figaro 
 gem "figaro"
+# use devise for user authentication
+gem 'devise'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
