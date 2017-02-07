@@ -7,4 +7,10 @@ Rails.application.routes.draw do
   								}
  	resources :users, only: :show
   root to: "static_pages#home"
+  
+  namespace :admin do 
+  	resources :items
+  end
+  
+  resources :items, only: [:index, :show]
 end
