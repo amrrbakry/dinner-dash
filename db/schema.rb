@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170207141042) do
+ActiveRecord::Schema.define(version: 20170207164607) do
+
+  create_table "items", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.decimal  "price",       precision: 8, scale: 2
+    t.string   "picture"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["title"], name: "index_items_on_title"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
