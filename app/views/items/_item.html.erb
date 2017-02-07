@@ -1,6 +1,7 @@
+<a href="<%= item_path(item) %>">
 <div id="item">
 	<div id="item-picture">
-		<%= item.picture %>
+		<%= image_tag item.picture.url(:medium), alt: item.title, width: "150" %>
 	</div>
 	<div id="item-title">
 		<%= item.title %>
@@ -9,6 +10,7 @@
 		<%= item.description %>
 	</div>
 	<div id="item-price">
-		<%= item.price %>
+		<%= number_to_currency(item.price, unit: "EG") %>
 	</div>
 </div>
+</a>

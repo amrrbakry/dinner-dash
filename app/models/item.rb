@@ -3,4 +3,6 @@ class Item < ApplicationRecord
 	validates :description, presence: true
 	validates :price, 			presence: true, numericality: { greater_than: 0 }
 
+  has_attached_file :picture, styles: { medium: "50x50#" }, default_url: "default_item_pic.jpg"
+  validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
 end

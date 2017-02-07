@@ -37,6 +37,8 @@ gem 'skylight'
 gem "figaro"
 # use devise for user authentication
 gem 'devise'
+# paperclip for file attachment
+gem "paperclip", "~> 5.0.0"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
