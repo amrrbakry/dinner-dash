@@ -1,25 +1,12 @@
 class ItemsController < ApplicationController
+	before_action :set_item, only: [:show, :edit, :destroy] 
+	before_action :admin?, except: [:index, :show]
+
 	def index
 		@items = Item.all
 	end
 
 	def show
-		@item = Item.find(params[:id])
-	end
-
-	def create
-	end
-
-	def new
-	end
-
-	def edit
-	end
-
-	def update
-	end
-
-	def destroy
 	end
 
 	private
