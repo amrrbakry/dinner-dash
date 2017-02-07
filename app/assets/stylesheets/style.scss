@@ -16,12 +16,28 @@ body {
    box-sizing:        border-box;
 }
 
+a {
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+
 /* 
 ------- header
 */
 
 .header {
 	background-color: #fff;
+
+	li a {
+		color: #4CC283 !important;
+	}
+
+	li a:hover {
+		background-color: #ebebeb !important;
+	}
 }
 
 /* 
