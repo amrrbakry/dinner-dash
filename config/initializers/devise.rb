@@ -17,6 +17,9 @@ Devise.setup do |config|
   # Configure the class responsible to send e-mails.
   config.mailer = 'Devise::Mailer'
 
+  # speed up the tests
+  config.stretches = Rails.env.test? ? 1 : 10
+
   # Configure the parent class responsible to send e-mails.
   config.parent_mailer = 'ActionMailer::Base'
 
