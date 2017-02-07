@@ -1,6 +1,7 @@
 class Admin::ItemsController < ApplicationController
-	before_action :set_item, only: [:show, :edit, :destroy, :update] 
+	before_action :set_item, 					only: [:show, :edit, :destroy, :update] 
 	before_action :admin?
+	before_save :add_default_picture
 	
 	def show
 	end
@@ -51,5 +52,12 @@ class Admin::ItemsController < ApplicationController
 
 		def item_params
 			params.require(:item).permit(:title, :description, :price, :picture)
+		end
+
+		# add default picture for item if not picture is provided
+		def add_default_picture
+			if @item.picture == nil
+				@item.picture = "default_item_pic.jpg"
+			end
 		end
 end
