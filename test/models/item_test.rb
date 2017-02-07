@@ -34,12 +34,20 @@ class ItemTest < ActiveSupport::TestCase
 	test "price is greater than zero" do
 		@item.price = -2.00
 		assert_not @item.valid?
+		@item.price < 0.00
+		assert_not @item.valid?
 	end
 
 	test "default picture is used if no picture is provided" do
 		item = Item.new(title: "t", description: "d", price: 5.00)
 		item.save
-		assert item.picture = "default_item_pic.jpg"
+		assert_equal item.picture, "default_item_pic.jpg"
+	end
+
+	test "provided picture is used insted of default" do
+		item = Item.new(title: "t", description: "d", price: 3.00, picture: "my_item.jpg")
+		item.save
+		assert_equal item.picture, "my_item.jpg"
 	end
 
 	test "item belong to at least one category" do
