@@ -14,8 +14,10 @@ Rails.application.routes.draw do
   root to: "items#index"
   
   namespace :admin do 
-  	resources :items
-    resources :categories
+    resources :categories do 
+      resources :items 
+    end
+    resources :items
   end
   
   resources :items, only: [:index, :show]
