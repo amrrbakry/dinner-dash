@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   								  shared: 'users/shared'
   								}
  	resources :users, only: :show
-  root to: "static_pages#home"
+  
+  root to: "items#index"
   
   namespace :admin do 
   	resources :items
