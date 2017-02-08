@@ -5,4 +5,7 @@ class Item < ApplicationRecord
 
   has_attached_file :picture, styles: { medium: "50x50#" }, default_url: "default_item_pic.jpg"
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
+
+  has_many :items_categories
+  has_many :categories, through: :items_categories
 end

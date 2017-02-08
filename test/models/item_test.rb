@@ -2,7 +2,8 @@ require 'test_helper'
 
 class ItemTest < ActiveSupport::TestCase
 	def setup
-		@item = Item.create(title: "Milk", description: "a catron of milk", price: 12.00)
+		@category = categories(:one)
+		@item = @category.items.create(title: "Milk", description: "a catron of milk", price: 12.00)
 	end
 
 	test "item is valid" do
@@ -45,7 +46,6 @@ class ItemTest < ActiveSupport::TestCase
 	end
 
 	test "item belong to at least one category" do
-		@item.category = nil
-		assert_not @item.valid?
+		assert_not @item.categories.empty?
 	end
 end

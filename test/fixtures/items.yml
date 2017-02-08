@@ -1,1 +1,4 @@
-
+one:
+  title: "item1"
+  description: "item1 desc"
+  price: 2.00
