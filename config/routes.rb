@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     resources :categories
   end
   
-  resources :items,      only: [:index, :show]
-  resources :categories, only: [:index, :show]
+  resources :items, only: [:index, :show]
+  
+  resources :categories, only: [:index, :show] do
+    resources :items,    only: [:index, :show]
+  end
+
 end
