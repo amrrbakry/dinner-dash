@@ -33,6 +33,7 @@ a {
   background-color: #CA4A4A;
   color: white;
 }
+
 /* 
 ------- header
 */
@@ -57,4 +58,44 @@ a {
 	background-color: #fafafa;
   margin-top: 50px;
   padding: 10px;
+}
+
+/* 
+------- item-index
+*/
+
+.item-index {
+  padding: 5px;
+}
+
+/* 
+------- item
+*/
+
+#item {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px;
+
+  #item-picture {
+    border: 2px solid #d1d1d1;
+    margin-bottom: 5px;
+  }
+
+  #item-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  #item-description {
+    color: #787878;
+  }
+}
+
+#item:hover {
+  background-color: #d3d3d3;
+}
+
+#item-link:hover {
+  text-decoration: none;
 }
