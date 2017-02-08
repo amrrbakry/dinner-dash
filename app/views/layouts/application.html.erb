@@ -12,10 +12,9 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="container-fluid wrapper">
-      <% if !flash.empty? %>
-        <p class="alert alert-success"><%= notice %></p>
-        <p class="alert alert-danger"><%= alert %></p>
-      <% end %>
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
       <%= yield %>
     </div>
   </body>

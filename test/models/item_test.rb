@@ -41,13 +41,7 @@ class ItemTest < ActiveSupport::TestCase
 	test "default picture is used if no picture is provided" do
 		item = Item.new(title: "t", description: "d", price: 5.00)
 		item.save
-		assert_equal item.picture, "default_item_pic.jpg"
-	end
-
-	test "provided picture is used insted of default" do
-		item = Item.new(title: "t", description: "d", price: 3.00, picture: "my_item.jpg")
-		item.save
-		assert_equal item.picture, "my_item.jpg"
+		assert_equal item.picture.url, "default_item_pic.jpg"
 	end
 
 	test "item belong to at least one category" do

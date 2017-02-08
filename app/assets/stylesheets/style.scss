@@ -24,6 +24,15 @@ a {
   transition:.5s;
 }
 
+.alert-notice {
+  background-color: #6EDE6C;
+  color: #fff;
+}
+
+.alert-alert {
+  background-color: #CA4A4A;
+  color: white;
+}
 /* 
 ------- header
 */
@@ -47,4 +56,5 @@ a {
 .wrapper {
 	background-color: #fafafa;
   margin-top: 50px;
+  padding: 10px;
 }
