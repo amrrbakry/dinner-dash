@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   								  shared: 'users/shared'
   								}
  	resources :users, only: :show
+
+  devise_scope :user do
+    get 'sign_in', to: 'devise/sessions#new'
+  end
   
   root to: "items#index"
   
@@ -15,7 +19,7 @@ Rails.application.routes.draw do
   end
   
   resources :items, only: [:index, :show]
-  
+
   resources :categories, only: [:index, :show] do
     resources :items,    only: [:index, :show]
   end
