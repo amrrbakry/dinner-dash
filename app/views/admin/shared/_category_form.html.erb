@@ -4,5 +4,9 @@
   	<%= f.label :title %>
     <%= f.text_field :title, class: "form-control" %>
   </fieldset> <br/>
+  <fieldset>
+  	<%= f.label :description %>
+  	<%= f.text_area :description, class: "form-control" %>
+  </fieldset> <br/>
   <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>

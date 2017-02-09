@@ -1,5 +1,9 @@
 <div id="category">
-	<div id="category-title">
-		<%= link_to category.title, category_path(category) %>
-	</div>
+	<p id="category-title">
+		<h3><%= link_to category.title.titleize, category_path(category) %></h3>
+	<p>
+	<p id="category-description">
+		<i><%= category.description %></i>
+	</p>
 </div>
+<hr>
