@@ -12,7 +12,7 @@
 	<div id="item-price">
 		<em><%= number_to_currency(item.price, unit: "EG") %></em>
 	</div>
-	<% if current_user.admin? %>
+	<% if admin_role? %>
 		<div id="admin-controls">
 			<%= link_to "Edit item", edit_admin_item_path(item) %>
 			<%= link_to "Delete item", admin_item_path(item), method: :delete, data: { confirm: "Are you sure?" } %>
