@@ -8,6 +8,9 @@
 
 body { 
   font-size: 14px;
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
 }
 
 @mixin box_sizing {
@@ -23,6 +26,15 @@ a {
   -webkit-transition:.5s;
   transition:.5s;
 }
+
+#item {
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+
 
 .alert-notice {
   background-color: #6EDE6C;
