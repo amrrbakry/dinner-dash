@@ -13,6 +13,7 @@ class Admin::ItemsController < ApplicationController
 		@category = Category.find(params[:category_id])
 		@item = @category.items.new(item_params)
 		if @item.save
+			@items_categories = @category.items_categories.create(item_id: @item.id)
 			flash[:notice] = "Item created successfully"
 			redirect_to root_url
 		else
@@ -52,6 +53,6 @@ class Admin::ItemsController < ApplicationController
 		end
 
 		def item_params
-			params.require(:item).permit(:title, :description, :price, :picture)
+			params.require(:item).permit(:title, :description, :price, :picture, :category_id)
 		end
 end
