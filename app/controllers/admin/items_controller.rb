@@ -11,9 +11,8 @@ class Admin::ItemsController < ApplicationController
 	
 	def create
 		@category = Category.find(params[:category_id])
-		@item = @category.items.new(item_params)
-		if @item.save
-			@items_categories = @category.items_categories.create(item_id: @item.id)
+		@item = Item.new(item_params)
+		if @item.save && @category.items_categories.create(item_id: @item.id)
 			flash[:notice] = "Item created successfully"
 			redirect_to root_url
 		else
@@ -23,8 +22,7 @@ class Admin::ItemsController < ApplicationController
 	end
 
 	def new
-		@category = Category.find(params[:category_id])
-		@item = @category.items.new
+		@item = Item.new
 	end
 
 	def edit
