@@ -1,7 +1,7 @@
 <a id="item-link" href="/items/<%= item.id %>">
 <div id="item">
 	<figure id="item-picture">
-		<%= image_tag item.picture.url(:medium), alt: item.title, width: "170" %>
+		<%= image_tag item.picture.url(:medium), alt: item.title, width: "170", class: "img-responsive" %>
 	</figure>
 	<div id="item-title">
 		<%= item.title %>
