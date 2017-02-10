@@ -1,5 +1,6 @@
 class Admin::ItemsController < ApplicationController
-	before_action :set_item, 					only: [:show, :edit, :destroy, :update] 
+	before_action :set_item, 		 only: [:show, :edit, :destroy, :update] 
+	before_action :set_category, only: [:create, :update]
 	before_action :admin?
 
 	def show
@@ -10,7 +11,6 @@ class Admin::ItemsController < ApplicationController
 	end
 	
 	def create
-		@category = Category.find(params[:category_id])
 		@item = Item.new(item_params)
 		if @item.save && @category.items_categories.create(item_id: @item.id)
 			flash[:notice] = "Item created successfully"
@@ -29,7 +29,7 @@ class Admin::ItemsController < ApplicationController
 	end
 
 	def update
-		if @item.update(item_params)
+		if @item.update(item_params) && @category.items_categories.create(item_id: @item.id)
 			flash[:notice] = "Item updated!"
 			redirect_to @item
 		else
@@ -48,6 +48,10 @@ class Admin::ItemsController < ApplicationController
 
 		def set_item
 			@item = Item.find(params[:id])
+		end
+
+		def set_category
+			@category = Category.find(params[:category_id])
 		end
 
 		def item_params

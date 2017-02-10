@@ -15,7 +15,7 @@
 	<div id="item-categories">
 		<p><small>Categories: 
 				<% item.categories.each do |c| %>
-					<%= c.title %>
+					<%= link_to c.title, c %>
 				<% end %> 
 		</small></p>
 	</div>
