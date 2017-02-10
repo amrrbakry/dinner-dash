@@ -77,15 +77,7 @@ a {
 ------- item-index
 */
 
-.item-index {
-  padding: 5px;
-}
-
-/* 
-------- item
-*/
-
-#item {
+#item-index {
   display: inline-block;
   margin: 5px;
   padding: 10px;
@@ -93,6 +85,7 @@ a {
   #item-picture {
     border: 2px solid #d1d1d1;
     margin-bottom: 5px;
+    width: 170px;
   }
 
   #item-title {
@@ -105,12 +98,36 @@ a {
   }
 }
 
-#item:hover {
+#item-index:hover {
   background-color: #d3d3d3;
 }
 
 #item-link:hover {
   text-decoration: none;
+}
+/* 
+------- item-show
+*/
+
+#item-show {
+  display: inline-block;
+  margin: 5px;
+
+  #item-picture {
+    border: 2px solid #d1d1d1;
+    margin-bottom: 5px;
+    width: 300px;
+  }
+
+  #item-title {
+    font-size: 22px;
+    font-weight: bold;
+    display: inline-block;
+  }
+
+  #item-description {
+    color: #787878;
+  }
 }
 
 /* 
