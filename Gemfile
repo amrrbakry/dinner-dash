@@ -39,6 +39,8 @@ gem "figaro"
 gem 'devise'
 # paperclip for file attachment
 gem "paperclip", "~> 5.0.0"
+# use elasticsearch/searchkick to search items
+gem "searchkick"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

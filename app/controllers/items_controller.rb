@@ -3,12 +3,16 @@ class ItemsController < ApplicationController
 	before_action :admin?, except: [:index, :show]
 
 	def index
-		@items = Item.all
-
+		if params[:query].present?
+			@items = Item.search(params[:query], match: :word_start)
+		else
+			@items = Item.all
+		end
 	end
 
 	def show
 	end
+
 
 	private
 
