@@ -3,6 +3,6 @@ class ApplicationController < ActionController::Base
 
   # user is admin?
   def admin?
-		redirect_to(root_url) unless current_user.try(:admin)
-	end
+    redirect_to(root_url) unless current_user.try(:admin)
+  end
 end

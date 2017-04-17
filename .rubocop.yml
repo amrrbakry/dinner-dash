@@ -11,3 +11,7 @@ Metrics/LineLength:
 # ignore documentation comments
 Documentation:
   Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/ConditionalAssignment:
+  Enabled: false
