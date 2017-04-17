@@ -65,3 +65,8 @@ guard :minitest, spring: "bin/rails test", all_on_start: false do
   watch(%r{^test/mailers/(.*)\.rb})     { |m| "test/mailers/#{m[1]}.rb" }
   watch(%r{^test/models/(.*)\.rb})      { |m| "test/models/#{m[1]}.rb" }
 end
+
+guard :rubocop do
+  watch(%r{.+\.rb$})
+  watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
+end
