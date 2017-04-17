@@ -1,6 +1,6 @@
 # exclude schema file from all cops
 AllCops:
-  Excludes:
+  Exclude:
     - db/schema.rb
 # ignore string literals
 StringLiterals:
@@ -11,7 +11,3 @@ Metrics/LineLength:
 # ignore documentation comments
 Documentation:
   Enabled: false
-# exclude spec files from block size rule
-Style/BlockLength:
-  Exclude:
-    - 'spec/**/*.rb'
