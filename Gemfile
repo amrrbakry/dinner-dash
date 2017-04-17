@@ -41,6 +41,7 @@ gem 'devise'
 gem "paperclip", "~> 5.0.0"
 # use elasticsearch/searchkick to search items
 gem "searchkick"
+gem 'rubocop', '~> 0.48.1', require: false
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
