@@ -5,7 +5,9 @@
 </div> <br/>
 <div class="row item-variations">
   <div class="col-lg-6">
-    <h4>Variations of this item</h4>
-    <%= render @item.variations %>
+    <% if !@item.variations.empty? %>
+      <h4>Variations of this item</h4>
+      <%= render @item.variations %>
+    <% end %>
   </div>
 </div>
