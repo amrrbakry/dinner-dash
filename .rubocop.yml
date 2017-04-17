@@ -2,6 +2,7 @@
 AllCops:
   Exclude:
     - db/*
+    - db/migrate/*
 # ignore string literals
 StringLiterals:
   Enabled: false
