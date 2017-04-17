@@ -5,7 +5,9 @@
     <%= f.fields_for :variations do |v| %> 
       <%= render 'variation_fields', f: v %>
     <% end %>
-    <%= link_to_add_association 'add a variation of this item', f, :variations %>
+    <% unless a_varation?(f.object) %>
+      <%= link_to_add_association 'add a variation of this item', f, :variations %>
+    <% end %>
   </fieldset> <br/>
   <%= f.submit "Post", class: "btn btn-primary" %>
   <span class="picture">
