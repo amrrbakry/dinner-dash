@@ -1,7 +1,7 @@
 # exclude schema file from all cops
 AllCops:
   Exclude:
-    - db/schema.rb
+    - db/
 # ignore string literals
 StringLiterals:
   Enabled: false
@@ -9,7 +9,7 @@ StringLiterals:
 Metrics/LineLength:
   Max: 120
 Metrics/BlockLength:
-  Max: 30
+  Max: 35
 # ignore documentation comments
 Documentation:
   Enabled: false
