@@ -8,6 +8,8 @@ StringLiterals:
 # extend line length
 Metrics/LineLength:
   Max: 120
+Metrics/BlockLength:
+  Max: 30
 # ignore documentation comments
 Documentation:
   Enabled: false
