@@ -3,6 +3,7 @@ AllCops:
   Exclude:
     - db/*
     - db/migrate/*
+    - Guardfile
 # ignore string literals
 StringLiterals:
   Enabled: false
