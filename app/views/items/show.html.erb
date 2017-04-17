@@ -3,8 +3,9 @@
 		<%= render @item %>
 	</div>
 </div> <br/>
+<hr>
 <div class="row item-variations">
-  <div class="col-lg-6">
+  <div class="col-lg-12">
     <% if !@item.variations.empty? %>
       <h4>Variations of this item</h4>
       <%= render @item.variations %>
