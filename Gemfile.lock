@@ -111,6 +111,9 @@ GEM
     guard-minitest (2.4.6)
       guard-compat (~> 1.2)
       minitest (>= 3.0)
+    guard-rubocop (1.2.0)
+      guard (~> 2.0)
+      rubocop (~> 0.20)
     hashie (3.5.3)
     http_parser.rb (0.6.0)
     i18n (0.8.0)
@@ -276,6 +279,7 @@ DEPENDENCIES
   guard (= 2.13.0)
   guard-livereload (~> 2.5)
   guard-minitest
+  guard-rubocop
   jquery-rails
   letter_opener
   listen (~> 3.0.5)

@@ -50,6 +50,7 @@ group :development, :test do
   gem 'guard',  '2.13.0'
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'guard-minitest'
+  gem 'guard-rubocop'
   gem 'minitest-reporters', '1.1.9'
   gem "rack-livereload"
   gem 'rails-controller-testing', '0.1.1'
