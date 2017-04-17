@@ -11,5 +11,7 @@ class Item < ApplicationRecord
   has_many :variations, class_name: "Item", foreign_key: "parent_item_id"
   belongs_to :item, class_name: "Item"
 
+  accepts_nested_attributes_for :variations, reject_if: :all_blank, allow_destroy: true
+
   searchkick
 end

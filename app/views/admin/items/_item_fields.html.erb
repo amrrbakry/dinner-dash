@@ -1,0 +1,30 @@
+<fieldset>
+  <%= f.label :title %>
+  <%= f.text_field :title, class: "form-control" %>
+</fieldset> <br/>
+<fieldset>
+  <%= f.label :description %>
+  <%= f.text_area :description, placeholder: "item description here...", class: "form-control" %>
+</fieldset> <br/>
+<fieldset>
+  <%= f.label :category %>
+  <%= select_tag "category_id", options_for_select(Category.pluck(:title, :id)), class: "form-control" %> 
+</fieldset> <br/>
+<fieldset>
+  <%= f.label :price %>
+  <%= f.number_field :price, class: "form-control" %>
+</fieldset> <br/>
+<fieldset>
+  <%= f.label :picture %>
+  <%= f.file_field :picture, accept: 'image/jpeg, image/gif, image/png' %>
+</fieldset> <br />
+<hr>
+
+<script type="text/javascript">
+  $('#item_picture').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 2) {
+      alert('Maximum file size is 2MB. Please choose a smaller file.');
+    }
+  });
+</script>

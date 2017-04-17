@@ -54,7 +54,8 @@ module Admin
     end
 
     def item_params
-      params.require(:item).permit(:title, :description, :price, :picture, :category_id)
+      params.require(:item).permit(:title, :description, :price, :picture, :category_id,
+                                   variations_attributes: %i[id title description price picture category_id _destroy])
     end
   end
 end
