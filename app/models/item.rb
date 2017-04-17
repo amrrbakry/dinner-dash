@@ -8,6 +8,8 @@ class Item < ApplicationRecord
 
   has_many :items_categories
   has_many :categories, through: :items_categories
+  has_many :variations, class_name: "Item", foreign_key: "parent_item_id"
+  belongs_to :item, class_name: "Item"
 
   searchkick
 end

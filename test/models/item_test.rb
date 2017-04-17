@@ -4,6 +4,7 @@ class ItemTest < ActiveSupport::TestCase
   def setup
     @category = categories(:one)
     @item = @category.items.create(title: "Milk", description: "a catron of milk", price: 12.00)
+    @item.variations.create!(title: "Soy Milk", description: "soooy", price: 10.00)
   end
 
   test "item is valid" do
@@ -45,5 +46,11 @@ class ItemTest < ActiveSupport::TestCase
 
   test "item belong to at least one category" do
     assert_not @item.categories.empty?
+  end
+
+  test "item has variations" do
+    assert @item.variations.size == 1
+    @item.variations.create!(title: "test v", description: "d", price: 5.00)
+    assert @item.variations.size == 2
   end
 end
