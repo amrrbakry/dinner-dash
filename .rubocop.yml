@@ -1,7 +1,7 @@
 # exclude schema file from all cops
 AllCops:
   Exclude:
-    - db
+    - db/*
 # ignore string literals
 StringLiterals:
   Enabled: false
