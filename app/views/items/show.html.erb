@@ -1,7 +1,13 @@
 <div class="row item">
-	<div class="col-lg-6">
+	<div class="col-lg-4">
 		<%= render @item %>
 	</div>
+  <div class="col-lg-8 item-options">
+    <h3>Item options</h3>
+    <% @item.options.each do |o| %>
+      <%= render 'options/option', o: o %>
+    <% end %>
+  </div>
 </div> <br/>
 <hr>
 <div class="row item-variations">
