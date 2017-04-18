@@ -5,14 +5,15 @@
     <%= f.fields_for :options do |option| %>
       <%= render 'option_fields', f: option %>
     <% end %> <br/>
-    <%= link_to_add_association "Add an option to this item", f, :options %>  
+    <h4> <%= link_to_add_association "Add an option to this item", f, :options %> </h4>
   </fieldset>
+  <hr>
   <fieldset>
     <%= f.fields_for :variations do |v| %> 
       <%= render 'variation_fields', f: v %>
     <% end %>
     <% unless a_variation?(f.object) %>
-      <%= link_to_add_association 'add a variation of this item', f, :variations %>
+      <h4> <%= link_to_add_association 'add a variation of this item', f, :variations %> <h4>
     <% end %>
   </fieldset> <br/>
   <%= f.submit "Post", class: "btn btn-primary" %>
