@@ -2,6 +2,12 @@
   <%= render 'admin/shared/error_messages', object: f.object %>
   <%= render 'item_fields', f: f %>
   <fieldset>
+    <%= f.fields_for :options do |option| %>
+      <%= render 'option_fields', f: option %>
+    <% end %> <br/>
+    <%= link_to_add_association "Add an option to this item", f, :options %>  
+  </fieldset>
+  <fieldset>
     <%= f.fields_for :variations do |v| %> 
       <%= render 'variation_fields', f: v %>
     <% end %>
