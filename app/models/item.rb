@@ -10,6 +10,7 @@ class Item < ApplicationRecord
   has_many :categories, through: :items_categories
   has_many :variations, class_name: "Item", foreign_key: "parent_item_id"
   belongs_to :item, class_name: "Item"
+  has_many :options
 
   accepts_nested_attributes_for :variations, reject_if: :all_blank, allow_destroy: true
 
