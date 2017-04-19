@@ -2,6 +2,9 @@
   <%= o.name %>
 </fieldset> <br/>
 <fieldset>
+  <%= o.description %>
+</fieldset> <br/>
+<fieldset>
     <%= image_tag o.o_picture.url(:medium), alt: o.name, class: "img-responsive" if o.o_picture.present? %>
 </fieldset>
 <hr>
