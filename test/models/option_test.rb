@@ -10,6 +10,11 @@ class OptionTest < ActiveSupport::TestCase
     assert @option.valid?
   end
 
+  test "option description is not too long" do
+    @option.description = "a" * 401
+    assert_not @option.valid?
+  end
+
   test "name is present" do
     @option.name = nil
     assert_not @option.valid?
