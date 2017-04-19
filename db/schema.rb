@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418222025) do
+ActiveRecord::Schema.define(version: 20170419153305) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "title"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170418222025) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.integer  "parent_item_id"
+    t.         "options"
     t.index ["title"], name: "index_items_on_title"
   end
 
@@ -49,7 +50,23 @@ ActiveRecord::Schema.define(version: 20170418222025) do
     t.string   "o_picture_content_type"
     t.integer  "o_picture_file_size"
     t.datetime "o_picture_updated_at"
+    t.text     "description"
     t.index ["item_id"], name: "index_options_on_item_id"
+  end
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "status"
+    t.decimal  "total_price", precision: 8, scale: 2
+    t.integer  "customer_id"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -73,6 +90,15 @@ ActiveRecord::Schema.define(version: 20170418222025) do
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "values", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "additional_charge", precision: 8, scale: 2, default: "0.0", null: false
+    t.integer  "option_id"
+    t.datetime "created_at",                                                null: false
+    t.datetime "updated_at",                                                null: false
+    t.index ["option_id"], name: "index_values_on_option_id"
   end
 
 end
