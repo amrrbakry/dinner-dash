@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  additional_charge: 9.99
+  option: one
+
+two:
+  name: MyString
+  additional_charge: 9.99
+  option: two

@@ -6,6 +6,7 @@
     <h3>Item options</h3>
     <% @item.options.each do |o| %>
       <%= render 'options/option', o: o %>
+      <%= render 'values/option_values', o: o %>
     <% end %>
   </div>
 </div> <br/>

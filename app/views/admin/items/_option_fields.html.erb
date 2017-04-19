@@ -3,7 +3,7 @@
     <%= link_to_remove_association "remove this option", f %>
   </fieldset> <br/>
   <fieldset>
-    <%= f.label :name %>
+    <%= f.label :name, "Option" %>
     <%= f.text_field :name, class: "form-control" %>
   </fieldset> <br/>
   <fieldset>
@@ -13,6 +13,12 @@
   <fieldset>
     <%= f.label "Option Picture" %>
     <%= f.file_field :o_picture, accept: 'image/jpeg, image/gif, image/png' %>
+  </fieldset> <br />
+  <fieldset>
+    <%= f.fields_for :values do |v| %> 
+      <%= render 'value_fields', f: v %>
+    <% end %> <br />
+    <%= link_to_add_association "Add a value to this option", f, :values %>  
   </fieldset>
 </div>
 <hr>
