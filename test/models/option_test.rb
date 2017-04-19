@@ -19,9 +19,4 @@ class OptionTest < ActiveSupport::TestCase
     @option.name = nil
     assert_not @option.valid?
   end
-
-  test "item_id is present" do
-    @option.item_id = nil
-    assert_not @option.valid?
-  end
 end

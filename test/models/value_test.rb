@@ -3,7 +3,7 @@ require 'test_helper'
 class ValueTest < ActiveSupport::TestCase
   def setup
     @item = Item.first
-    @option = @item.options.first
+    @option = @item.options.create!(name: "o1", description: "od1")
     @value = @option.values.build(name: "value1", additional_charge: 5.00)
   end
 
@@ -13,11 +13,6 @@ class ValueTest < ActiveSupport::TestCase
 
   test "name is present" do
     @value.name = nil
-    assert_not @value.valid?
-  end
-
-  test "option_id is present" do
-    @value.option_id = nil
     assert_not @value.valid?
   end
 
