@@ -6,4 +6,6 @@ class Option < ApplicationRecord
   validates_attachment_size :o_picture, less_than: 2.megabytes
   belongs_to :item
   has_many :values
+
+  accepts_nested_attributes_for :values, reject_if: :all_blank, allow_destroy: true
 end
