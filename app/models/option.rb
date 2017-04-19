@@ -6,7 +6,7 @@ class Option < ApplicationRecord
   validates_attachment_file_name :o_picture, matches: [/png\z/, /jpe?g\z/]
   validates_attachment_size :o_picture, less_than: 2.megabytes
   belongs_to :item
-  has_many :values
+  has_many :values, dependent: :destroy
 
   accepts_nested_attributes_for :values, reject_if: :all_blank, allow_destroy: true
 end
