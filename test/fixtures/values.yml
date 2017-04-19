@@ -2,10 +2,10 @@
 
 one:
   name: MyString
-  addtional_charge: 9.99
+  additional_charge: 9.99
   option: one
 
 two:
   name: MyString
-  addtional_charge: 9.99
+  additional_charge: 9.99
   option: two

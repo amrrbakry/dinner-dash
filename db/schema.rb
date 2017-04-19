@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170419145831) do
+ActiveRecord::Schema.define(version: 20170419151346) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "title"
@@ -77,10 +77,10 @@ ActiveRecord::Schema.define(version: 20170419145831) do
 
   create_table "values", force: :cascade do |t|
     t.string   "name"
-    t.decimal  "addtional_charge", precision: 8, scale: 2, default: "0.0", null: false
+    t.decimal  "additional_charge", precision: 8, scale: 2, default: "0.0", null: false
     t.integer  "option_id"
-    t.datetime "created_at",                                               null: false
-    t.datetime "updated_at",                                               null: false
+    t.datetime "created_at",                                                null: false
+    t.datetime "updated_at",                                                null: false
     t.index ["option_id"], name: "index_values_on_option_id"
   end
 
