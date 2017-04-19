@@ -25,4 +25,14 @@ class ValueTest < ActiveSupport::TestCase
     value = @option.values.build(name: "V1")
     assert value.additional_charge == 0.00
   end
+
+  test "value's additional_charge is number" do
+    @value.additional_charge = "abc"
+    assert_not @value.valid?
+  end
+
+  test "value's additional_charge is greater than zero" do
+    @value.additional_charge = -2
+    assert_not @value.valid?
+  end
 end
