@@ -2,7 +2,7 @@ require 'test_helper'
 
 class OrderTest < ActiveSupport::TestCase
   def setup
-    @order = Order.new(subtotal: 10.00, tax: 1, total: 11, status: "completed")
+    @order = Order.new(subtotal: 10.00, tax: 1, total: 11, status: "placed")
   end
 
   test "subtotal is present" do
@@ -19,8 +19,8 @@ class OrderTest < ActiveSupport::TestCase
     @order.status = nil
   end
 
-  test "status is either pending, processed or completed" do
-    statuses = %i[pending processed completed]
+  test "status is either placed, processed or completed" do
+    statuses = %w[placed processed completed]
     assert_includes(statuses, @order.status)
   end
 end
