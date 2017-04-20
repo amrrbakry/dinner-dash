@@ -13,6 +13,7 @@ class Item < ApplicationRecord
   has_many :variations, class_name: "Item", foreign_key: "parent_item_id"
   belongs_to :item, class_name: "Item"
   has_many :options, dependent: :destroy
+  has_many :order_items
 
   accepts_nested_attributes_for :variations, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :options, reject_if: :all_blank, allow_destroy: true
