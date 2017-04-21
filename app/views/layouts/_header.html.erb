@@ -22,8 +22,6 @@
             <li><%= link_to "All Categories", categories_path %></li>
             <li><a href="#">Special items</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">New Order</a></li>
-            <li role="separator" class="divider"></li>
             <li><a href="#">Contact us</a></li>
           </ul>
         </li>
@@ -39,12 +37,12 @@
           <% if admin_role? %>
             <%= render 'layouts/admin_controls' %>
           <% end %>
-          <li><a href="#"><b>New Order</b></a></li>
           <li><%= link_to "Profile", user_path(current_user)%></li>
           <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "Sign in", new_user_session_path %></li>
         <% end %>
+        <li class="cart-summary"> <%= render 'layouts/cart_summary' %> </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

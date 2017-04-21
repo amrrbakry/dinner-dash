@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-lg-1">
+    <h4><%= item.title %></h4>
+  </div>
+  <div class="col-lg-8">
+    <%= form_for order_item, remote: true do |f| %>
+      <div class="row">
+        <div class="col-md-4">
+          <%= f.number_field :quantity, value: order_item.quantity.to_i, class: "form-control", min: 1 %>
+          <%= f.hidden_field :item_id, value: item.id %>
+        </div>
+        <div class="col-md-6 text-left">
+          <div class="btn-group">
+            <%= f.submit "Update Quantity", class: "btn btn-primary" %>
+            <%= link_to "Delete", order_item, { data: { confirm: "Are you sure you wish to delete the item '#{order_item.item.title}' from your cart?" }, method: :delete, remote: true, class: "btn btn-danger" } %>
+          </div>
+        </div>
+      </div>
+      <h4 class="text-left">Unit Price: <span style="color: green"><%= number_to_currency order_item.unit_price %></span></h4>
+      <h4 class="text-left">Total Price: <span style="color: green"><%= number_to_currency order_item.total_price, unit: 'EGP' %></span></h4>
+    <% end %>
+  </div>
+</div>
+<hr>

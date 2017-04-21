@@ -8,9 +8,4 @@ class OrderTest < ActiveSupport::TestCase
   test "order is valid" do
     assert @order.valid?
   end
-
-  test "total is present" do
-    @order.total = nil
-    assert_not @order.valid?
-  end
 end

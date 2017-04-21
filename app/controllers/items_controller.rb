@@ -8,9 +8,12 @@ class ItemsController < ApplicationController
     else
       @items = Item.all
     end
+    @order_item = current_order.order_items.new
   end
 
-  def show; end
+  def show
+    @order_item = current_order.order_items.new
+  end
 
   private
 

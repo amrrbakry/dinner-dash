@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'order_items/create'
+
+  get 'order_items/update'
+
+  get 'order_items/destroy'
+
+  get 'carts/show'
+
   devise_for :users, controllers: { sessions: 'users/sessions',
                                     registrations: 'users/registrations',
                                     confirmations: 'users/confirmations',
@@ -20,4 +28,6 @@ Rails.application.routes.draw do
   resources :categories, only: %i[index show] do
     resources :items, only: %i[index show]
   end
+  resource :cart, only: [:show]
+  resources :order_items, only: %i[create update destroy]
 end

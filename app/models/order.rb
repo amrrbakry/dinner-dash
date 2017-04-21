@@ -1,7 +1,6 @@
 class Order < ApplicationRecord
   before_create :set_order_status
   before_save :update_subtotal
-  validates :total, presence: true
   has_many :order_items
   belongs_to :order_status
 
