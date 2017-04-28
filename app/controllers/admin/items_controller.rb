@@ -12,7 +12,7 @@ module Admin
 
     def create
       @item = Item.new(item_params)
-      if @item.save && @category.items_categories.create(item_id: @item.id)
+      if @item.save
         flash[:notice] = "Item created successfully"
         redirect_to root_url
       else
@@ -28,7 +28,7 @@ module Admin
     def edit; end
 
     def update
-      if @item.update(item_params) && @category.items_categories.create(item_id: @item.id)
+      if @item.update(item_params)
         flash[:notice] = "Item updated!"
         redirect_to @item
       else
@@ -54,7 +54,7 @@ module Admin
     end
 
     def item_params
-      params.require(:item).permit(:title, :description, :price, :picture, :category_id,
+      params.require(:item).permit(:title, :description, :price, :picture,
                                    variations_attributes: %i[id title description price picture category_id _destroy],
                                    options_attributes: [:id, :name, :description, :o_picture, :_destroy,
                                                         values_attributes: %i[id name additional_charge _destroy]])

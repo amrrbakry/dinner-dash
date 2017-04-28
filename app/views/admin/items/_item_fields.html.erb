@@ -7,10 +7,6 @@
   <%= f.text_area :description, placeholder: "item description here...", class: "form-control" %>
 </fieldset> <br/>
 <fieldset>
-  <%= f.label :category %>
-  <%= select_tag "category_id", options_for_select(Category.pluck(:title, :id)), class: "form-control" %> 
-</fieldset> <br/>
-<fieldset>
   <%= f.label :price %>
   <%= f.number_field :price, class: "form-control" %>
 </fieldset> <br/>

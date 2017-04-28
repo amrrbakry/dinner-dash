@@ -8,8 +8,6 @@ class Item < ApplicationRecord
   validates_attachment_file_name :picture, matches: [/png\z/, /jpe?g\z/]
   validates_attachment_size :picture, less_than: 2.megabytes
 
-  has_many :items_categories
-  has_many :categories, through: :items_categories
   has_many :variations, class_name: "Item", foreign_key: "parent_item_id"
   belongs_to :item, class_name: "Item"
   has_many :options, dependent: :destroy
