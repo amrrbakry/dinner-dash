@@ -12,9 +12,12 @@ class Item < ApplicationRecord
   belongs_to :item, class_name: "Item"
   has_many :options, dependent: :destroy
   has_many :order_items
+  has_many :category_items
+  has_many :categories, through: :category_items
 
   accepts_nested_attributes_for :variations, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :options, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :category_items, reject_if: :all_blank
 
   searchkick
 end

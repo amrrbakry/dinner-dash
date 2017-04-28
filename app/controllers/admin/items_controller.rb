@@ -1,7 +1,6 @@
 module Admin
   class ItemsController < ApplicationController
     before_action :set_item, only: %i[show edit destroy update]
-    before_action :set_category, only: %i[create update]
     before_action :admin?
 
     def show; end
@@ -23,6 +22,7 @@ module Admin
 
     def new
       @item = Item.new
+      @category_item = CategoryItem.new
     end
 
     def edit; end
@@ -49,13 +49,10 @@ module Admin
       @item = Item.find(params[:id])
     end
 
-    def set_category
-      @category = Category.find(params[:category_id])
-    end
-
     def item_params
       params.require(:item).permit(:title, :description, :price, :picture,
-                                   variations_attributes: %i[id title description price picture category_id _destroy],
+                                   variations_attributes: %i[id title description price o_picture _destroy],
+                                   category_items_attributes: %i[id category_id],
                                    options_attributes: [:id, :name, :description, :o_picture, :_destroy,
                                                         values_attributes: %i[id name additional_charge _destroy]])
     end

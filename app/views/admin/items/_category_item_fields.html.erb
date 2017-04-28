@@ -1,0 +1,4 @@
+<div class="nested-fields">    
+  <%= f.label :category %>
+  <%= f.select :category_id, options_for_select(Category.all.select { |c| !@item.categories.include?(c) }.collect { |c| [c.title, c.id]}), {}, { class: "form-control" } %>
+</div>
