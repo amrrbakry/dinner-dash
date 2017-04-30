@@ -1,5 +1,5 @@
 <a id="item-link" href="/items/<%= item.id %>">
-<div id="item-<%= action_name %>" class="col-md-2">
+<div id="item-<%= action_name %>" class="col-md-4">
 	<figure id="item-picture">
 		<%= image_tag item.picture.url(:medium), alt: item.title, class: "img-responsive" %>
 	</figure>
@@ -25,8 +25,8 @@
 			<%= link_to "Delete item", admin_item_path(item), method: :delete, data: { confirm: "Are you sure?" } %>
 		</div>
 	<% end %> 
-	<div>
+</div>
+<div class="col-md-4">
 		<%= render 'cart_form', item: item, order_item: @order_item %>
-	</div>
 </div>
 </a>
