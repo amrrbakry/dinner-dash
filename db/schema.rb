@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170428134434) do
+ActiveRecord::Schema.define(version: 20170501165154) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
     t.string   "title"
@@ -37,7 +40,7 @@ ActiveRecord::Schema.define(version: 20170428134434) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.integer  "parent_item_id"
-    t.index ["title"], name: "index_items_on_title"
+    t.index ["title"], name: "index_items_on_title", using: :btree
   end
 
   create_table "options", force: :cascade do |t|
@@ -50,7 +53,7 @@ ActiveRecord::Schema.define(version: 20170428134434) do
     t.integer  "o_picture_file_size"
     t.datetime "o_picture_updated_at"
     t.text     "description"
-    t.index ["item_id"], name: "index_options_on_item_id"
+    t.index ["item_id"], name: "index_options_on_item_id", using: :btree
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -59,10 +62,11 @@ ActiveRecord::Schema.define(version: 20170428134434) do
     t.decimal  "unit_price",  precision: 8, scale: 2
     t.integer  "quantity"
     t.decimal  "total_price", precision: 8, scale: 2
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.index ["item_id"], name: "index_order_items_on_item_id"
-    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
+    t.text     "extras",                              default: [],              array: true
+    t.index ["item_id"], name: "index_order_items_on_item_id", using: :btree
+    t.index ["order_id"], name: "index_order_items_on_order_id", using: :btree
   end
 
   create_table "order_statuses", force: :cascade do |t|
@@ -78,7 +82,7 @@ ActiveRecord::Schema.define(version: 20170428134434) do
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
     t.integer  "order_status_id"
-    t.index ["order_status_id"], name: "index_orders_on_order_status_id"
+    t.index ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -99,9 +103,9 @@ ActiveRecord::Schema.define(version: 20170428134434) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   create_table "values", force: :cascade do |t|
@@ -110,7 +114,12 @@ ActiveRecord::Schema.define(version: 20170428134434) do
     t.integer  "option_id"
     t.datetime "created_at",                                                null: false
     t.datetime "updated_at",                                                null: false
-    t.index ["option_id"], name: "index_values_on_option_id"
+    t.index ["option_id"], name: "index_values_on_option_id", using: :btree
   end
 
+  add_foreign_key "options", "items"
+  add_foreign_key "order_items", "items"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "orders", "order_statuses"
+  add_foreign_key "values", "options"
 end

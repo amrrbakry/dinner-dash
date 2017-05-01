@@ -16,8 +16,11 @@
           </div>
         </div>
       </div>
-      <h4 class="text-left">Unit Price: <span style="color: green"><%= number_to_currency order_item.unit_price %></span></h4>
-      <h4 class="text-left">Total Price: <span style="color: green"><%= number_to_currency order_item.total_price, unit: 'EGP' %></span></h4>
+      <h4 class="text-left">Unit Price: <span style="color: green"><%= number_to_currency order_item.unit_price, unit: 'EGP' %></span></h4>
+      <div class="extras">
+        <%= render 'carts/cart_extras', order_item: order_item %>
+      </div>
+      <h4 class="text-left"><strong>Total Price: <span style="color: green"><%= number_to_currency order_item.total_price, unit: 'EGP' %></span></strong></h4>
     <% end %>
   </div>
 </div>

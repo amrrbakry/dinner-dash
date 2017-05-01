@@ -1,16 +1,19 @@
-<%= form_for order_item, remote: true do |f| %>
-  <div class="item-options">
-    <h3>Item options</h3>
-    <% @item.options.each do |o| %>
-      <%= render 'options/option', o: o %>
-      <%= render 'values/option_values', o: o %>
-    <% end %>
-  </div>
-  <div class="input-group">
-    <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
-      <div class="input-group-btn">
-        <%= f.hidden_field :item_id, value: item.id %>
-        <%= f.submit "Add to Cart", class: "btn btn-primary" %>
+<% if action_name == "show" %>
+  <%= form_for order_item, remote: true do |f| %>
+      <div class="item-options">
+        <h3>Item options</h3>
+        <% if item.options.any? %>
+          <% item.options.each do |o| %>
+            <%= render 'options/option', o: o, f: f %>
+          <% end %>
       </div>
-    </div>
+    <% end %>
+    <div class="input-group">
+      <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+        <div class="input-group-btn">
+          <%= f.hidden_field :item_id, value: item.id %>
+          <%= f.submit "Add to Cart", class: "btn btn-primary" %>
+        </div>
+      </div>
+  <% end %>
 <% end %>

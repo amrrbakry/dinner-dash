@@ -44,6 +44,7 @@ gem 'rubocop', '~> 0.48.1', require: false
 gem "searchkick"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'pg', '0.18.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -70,8 +71,7 @@ group :development do
   gem "letter_opener"
 end
 
-group :production do
-  gem 'pg', '0.18.4'
-end
+# group :production do
+# end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

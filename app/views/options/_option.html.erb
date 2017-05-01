@@ -1,11 +1,17 @@
 <fieldset>
-  <h4>Option name</h4>
   <%= o.name %>
-</fieldset> <br/>
-<fieldset>
-  <h4>Option Description</h4>
   <%= o.description %>
-</fieldset> <br/>
+</fieldset>
 <fieldset>
     <%= image_tag o.o_picture.url(:medium), alt: o.name, class: "img-responsive" if o.o_picture.present? %>
 </fieldset>
+<fieldset>
+  <h4>Choose a value:</h4>
+  <% if o.values.any? %>
+    <% o.values.each do |v| %>
+      <%= f.check_box "extras", { include_hidden: false, multiple: true}, v.id, { class: "checkbox" } %> 
+      <%= f.label :v, "#{v.name} - #{number_to_currency(v.additional_charge, unit: "EGP")}" %> <br/>
+    <% end %>
+  <% end %>
+</fieldset>
+<hr/>

@@ -16,8 +16,20 @@ class OrderItem < ApplicationRecord
     end
   end
 
+  # extras hold the ids of option values selected for the order item
+  def total_additional_charge
+    sum = 0
+    unless extras.empty?
+      extras.each do |value_id|
+        value_charge = Value.find_by(id: value_id).additional_charge
+        sum += value_charge
+      end
+    end
+    sum
+  end
+
   def total_price
-    unit_price * quantity
+    (unit_price * quantity) + total_additional_charge
   end
 
   private

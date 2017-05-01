@@ -1,9 +1,0 @@
-<div class="option-values">
-  <fieldset>
-    <h4>Choose a value:</h4>
-    <% if o.values.any? %>
-      <%= select_tag "value_id", options_for_select(o.values.pluck(:name, :id)), class: "form-control" %> 
-    <% end %>
-  </fieldset>
-</div>
-<hr/>
