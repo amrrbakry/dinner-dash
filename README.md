@@ -2,4 +2,4 @@
 
 # Dinner Dash
 ### an online commerce platform for a restaurant to facilitate online ordering.
-http://murmuring-plains-63177.herokuapp.com/
+http://dinner-dash17.herokuapp.com/
