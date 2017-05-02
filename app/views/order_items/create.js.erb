@@ -1,5 +1,5 @@
 <% if @order.errors.any? || @order_item.errors.any? %>
-alert("not valid.")
+  $("#item-options-errors").html("<%= escape_javascript(render partial: 'admin/shared/error_messages', locals: { object: @order_item }) %>")
 <% else %>
   $(".cart-summary").html("<%= escape_javascript(render 'layouts/cart_summary') %>")
 <% end %>

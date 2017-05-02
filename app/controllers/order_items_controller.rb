@@ -1,7 +1,7 @@
 class OrderItemsController < ApplicationController
   before_action :set_order, only: %i[create update destroy]
   before_action :set_order_item, only: %i[update destroy]
-
+  include ItemsHelper
   def create
     @order_item = @order.order_items.new(order_item_params)
     @order.save

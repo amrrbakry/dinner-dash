@@ -15,6 +15,10 @@
     <%= f.file_field :o_picture, accept: 'image/jpeg, image/gif, image/png' %>
   </fieldset> <br />
   <fieldset>
+    <%= f.check_box :required %>
+    <%= f.label "Required" %>
+  </fieldset> <br />
+  <fieldset>
     <%= f.fields_for :values do |v| %> 
       <%= render 'value_fields', f: v %>
     <% end %> <br />

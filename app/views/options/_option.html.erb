@@ -6,7 +6,6 @@
     <%= image_tag o.o_picture.url(:medium), alt: o.name, class: "img-responsive" if o.o_picture.present? %>
 </fieldset>
 <fieldset>
-  <h4>Choose a value:</h4>
   <% if o.values.any? %>
     <% o.values.each do |v| %>
       <%= f.check_box "extras", { include_hidden: false, multiple: true}, v.id, { class: "checkbox" } %> 

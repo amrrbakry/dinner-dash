@@ -1,5 +1,10 @@
+<div id="item-options-errors">
+</div>
 <% if action_name == "show" %>
   <%= form_for order_item, remote: true do |f| %>
+    <% if order_item.errors.any? %>
+      <%= render 'admin/shared/error_messages', object: order_item %>
+    <% end %>
       <div class="item-options">
         <h3>Item options</h3>
         <% if item.options.any? %>

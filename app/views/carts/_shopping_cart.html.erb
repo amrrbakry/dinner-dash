@@ -1,10 +1,6 @@
 <% if !@order_item.nil? && @order_item.errors.any? %>
   <div class="alert alert-danger">
-    <ul>
-    <% @order_item.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
+    <%= render 'admin/shared/error_messages', object: f.object %>
   </div>
 <% end %>
 <% if @order_items.size == 0 %>
