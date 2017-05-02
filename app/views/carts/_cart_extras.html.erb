@@ -1,6 +1,6 @@
 <h4>Extras:</h4>
 <% unless order_item.extras.nil? %>
-  <ol>
+  <ul>
     <% order_item.extras.each do |value_id| %>
       <% value = find_value(value_id) %>
       <li><h5>
@@ -8,5 +8,5 @@
         <span style="color: green;"><%= "+#{number_to_currency(value.additional_charge, unit: "EGP")}" %></span>
       </h5></li>
     <% end %> 
-  </ol>
+  </ul>
 <% end %>
