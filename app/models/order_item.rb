@@ -35,6 +35,10 @@ class OrderItem < ApplicationRecord
     (unit_price * quantity) + total_additional_charge
   end
 
+  def increment_quantity
+    self[:quantity] += 1
+  end
+
   private
 
   def item_present
