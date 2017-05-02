@@ -1,5 +1,8 @@
 <fieldset>
-  <%= o.name %>
+  <%= o.name %> 
+<% if o.required? %>
+<span style="color: red;"><small>*Required</small></span>
+<% end %> <br />
   <%= o.description %>
 </fieldset>
 <fieldset>
