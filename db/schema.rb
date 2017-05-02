@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502221345) do
+ActiveRecord::Schema.define(version: 20170502221708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,9 +75,9 @@ ActiveRecord::Schema.define(version: 20170502221345) do
     t.decimal  "subtotal",   precision: 8, scale: 2
     t.decimal  "tax",        precision: 8, scale: 2
     t.decimal  "total",      precision: 8, scale: 2
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
-    t.integer  "status"
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
+    t.string   "status",                             default: "pending"
     t.index ["status"], name: "index_orders_on_status", using: :btree
   end
 
