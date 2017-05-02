@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502135704) do
+ActiveRecord::Schema.define(version: 20170502170256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20170502135704) do
     t.datetime "o_picture_updated_at"
     t.text     "description"
     t.boolean  "required",               default: false
+    t.boolean  "multiple_values",        default: false
     t.index ["item_id"], name: "index_options_on_item_id", using: :btree
   end
 

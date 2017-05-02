@@ -7,9 +7,10 @@
 </fieldset>
 <fieldset>
   <% if o.values.any? %>
-    <% o.values.each do |v| %>
-      <%= f.check_box "extras", { include_hidden: false, multiple: true}, v.id, { class: "checkbox" } %> 
-      <%= f.label :v, "#{v.name} - #{number_to_currency(v.additional_charge, unit: "EGP")}" %> <br/>
+    <% if o.multiple_values? %>
+      <%= render 'options/option_values_checkbox', o: o, f: f %>
+    <% else %>
+      <%= render 'options/option_values_radio_button', o: o, f: f %>
     <% end %>
   <% end %>
 </fieldset>

@@ -19,6 +19,10 @@
     <%= f.label "Required" %>
   </fieldset> <br />
   <fieldset>
+    <%= f.check_box :multiple_values %>
+    <%= f.label "Allow selection of more than one value" %>
+  </fieldset> <br />
+  <fieldset>
     <%= f.fields_for :values do |v| %> 
       <%= render 'value_fields', f: v %>
     <% end %> <br />

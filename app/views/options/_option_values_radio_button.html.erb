@@ -1,0 +1,4 @@
+<% o.values.each do |v| %>
+  <%= f.radio_button "extras", v.id, { multiple: true, class: "radiobutton" } %>
+  <%= f.label :v, "#{v.name} - #{number_to_currency(v.additional_charge, unit: "EGP")}" %> <br/>
+<% end %>
