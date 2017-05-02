@@ -50,12 +50,17 @@ class OrderItem < ApplicationRecord
     self[:total_price] = total_price
   end
 
+  # get all option values in order item extras
+  def option_values_in_extras(option)
+    option.values.select { |v| extras.include?(v.id.to_s) }
+  end
+
   # if not at least one value of a required option is present in extras
   # then this required option is not selectd (validation error)
   def check_required_options
     item.options.each do |o|
       if o.required?
-        errors.add(o.name.to_s, "is required") if o.values.select { |v| extras.include?(v.id.to_s) }.empty?
+        errors.add(o.name.to_s, "is required") if option_values_in_extras(o).empty?
       end
     end
   end
