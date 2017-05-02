@@ -8,6 +8,8 @@ class OrderItem < ApplicationRecord
 
   before_save :finalize
 
+  include CartsHelper
+
   def unit_price
     if persisted?
       self[:unit_price]
@@ -21,7 +23,7 @@ class OrderItem < ApplicationRecord
     sum = 0
     unless extras.empty?
       extras.each do |value_id|
-        value_charge = Value.find_by(id: value_id).additional_charge
+        value_charge = find_value(value_id).additional_charge
         sum += value_charge
       end
     end
