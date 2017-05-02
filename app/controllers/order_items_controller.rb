@@ -37,8 +37,8 @@ class OrderItemsController < ApplicationController
 
   def add_new_or_exisitng_order_item(item_id)
     @order_item = @order.order_items.find_by(item_id: Item.find(item_id))
-    if @order_item
-      update_exisiting_order_item(@order_item)
+    if @order_item # item is already in cart
+      update_exisiting_order_item(@order_item) # increment quantity and record any updates to extras
     else
       @order_item = @order.order_items.new(order_item_params)
     end
