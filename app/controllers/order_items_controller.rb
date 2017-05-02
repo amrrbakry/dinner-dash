@@ -23,6 +23,10 @@ class OrderItemsController < ApplicationController
     params.require(:order_item).permit(:quantity, :item_id, extras: [])
   end
 
+  def order_item_params_without_quantity
+    params.require(:order_item).permit(:item_id, extras: [])
+  end
+
   def set_order
     @order = current_order
   end
@@ -43,6 +47,6 @@ class OrderItemsController < ApplicationController
   def update_exisiting_order_item(order_item)
     order_item.increment_quantity
     order_item.extras.clear
-    order_item.update_attributes(order_item_params)
+    order_item.update_attributes(order_item_params_without_quantity)
   end
 end
