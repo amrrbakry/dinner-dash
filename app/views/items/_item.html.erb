@@ -1,10 +1,9 @@
-<a id="item-link" href="/items/<%= item.id %>">
-<div id="item-<%= action_name %>" class="col-md-3">
+<div id="item-<%= action_name %>" class="col-md-4">
 	<figure id="item-picture">
 		<%= image_tag item.picture.url(:medium), alt: item.title, class: "img-responsive" %>
 	</figure>
 	<div id="item-title">
-		<%= item.title %>
+		<%= link_to item.title, item_path(item) %>
 	</div>
 	<div id="item-description">
 		<%= item.description %>
@@ -29,4 +28,3 @@
 <div class="col-md-4">
 		<%= render 'cart_form', item: item, order_item: @order_item %>
 </div>
-</a>

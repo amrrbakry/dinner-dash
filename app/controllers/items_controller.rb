@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: %i[show edit destroy]
-  before_action :admin?, except: %i[index show]
+
   def index
     if params[:query].present?
       @items = Item.search(params[:query], match: :word_start)
