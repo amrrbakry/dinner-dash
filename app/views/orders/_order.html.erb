@@ -1,0 +1,39 @@
+<div id="order-<%= action_name %>">
+  <fieldset>
+    <% if action_name == "index" %>
+      <a href="orders/<%= order.id %>"><h4 id="order-title">Order#<%= order.id %> (<%= order.status %>)</h4></a>
+      <small style="color: gray;">created at: <%= (order.created_at).strftime("%d %B %Y - %I:%M%p") %></small>
+    <% else %>
+      <h1>Order#<%= @order.id %></h1>
+      <h4>status: <span class="order-<%= order.status%>"><%= @order.status %></span></h4>
+      <h5>created at: <%= (@order.created_at).strftime("%d %B %Y - %I:%M%p") %></h5>
+    <% end %>
+    <% if order.status == "completed" %>
+      <% if action_name == "index" %>
+        <br />
+        <small style="color: gray;">completed at: <%= (order.updated_at).strftime("%d %B %Y - %I:%M%p") %> </small>
+      <% else %>
+        <h5>completed at: <%= (@order.updated_at).strftime("%d %B %Y - %I:%M%p") %></h5>
+      <% end %>  
+    <% end %>
+  </fieldset> <br />
+  <fieldset id="order-oi">
+    <% order.order_items.each do |oi| %>
+      <span id="oi-quantity"><%= oi.quantity %></span>
+      <span id="oi-title"><%= link_to oi.item.title, item_path(oi.item) %></span> 
+      <span id="oi-total-price">total: <%= number_to_currency(oi.total_price, unit: "EGP") %></span>
+      <br />
+      <% if action_name == "show" %>
+        <div class="extras">
+          <%= render 'carts/cart_extras', order_item: oi %>
+        </div>
+      <% end %>
+    <% end %>
+  </fieldset>
+  <fieldset>
+    <h3 class="text-right" id="order-subtotal">Subtotal: <%= number_to_currency(order.subtotal, unit: "EGP") %></h3>
+  </fieldset>
+  <fieldset class="order-controls">
+    <%= render 'order_controls', order: order %>
+  </fieldset>
+</div>

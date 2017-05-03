@@ -1,5 +1,5 @@
-<h4>Extras:</h4>
-<% unless order_item.extras.nil? %>
+<% if order_item.extras.any? %>
+  <h4>Extras:</h4>
   <ul>
     <% order_item.extras.each do |value_id| %>
       <% value = find_value(value_id) %>

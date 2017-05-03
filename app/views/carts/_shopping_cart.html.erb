@@ -12,4 +12,7 @@
     <%= render 'carts/cart_row', item: order_item.item, order_item: order_item, show_total: true %>
   <% end %>
   <h2 class="text-right" style="color: green; font-weight: bold;">Subtotal: <%= number_to_currency current_order.subtotal, unit: "EGP" %> </h2>
+  <div class="order-controls">
+    <%= render 'orders/order_controls', order: current_order %>
+  </div>
 <% end %>

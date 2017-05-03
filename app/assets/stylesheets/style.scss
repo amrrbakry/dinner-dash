@@ -218,3 +218,79 @@ a {
   padding: 10px;
   border-radius: 5px; 
 }
+
+/* 
+------- orders-index
+*/
+
+#order-index, #order-show {
+  background-color: #ebebeb;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  
+  a {
+    text-decoration: none;
+  }
+
+  #order-title {
+    font-weight: bold;
+    color: #004FA6;
+  }
+
+  #order-title:hover {
+    color: gray;
+  }
+
+  #order-subtotal {
+    font-weight: bold;
+    color: green;
+  }
+
+  #oi-quantity {
+    color: #1E5DC5;
+    font-size: 16px;
+  }
+
+  #oi-title {
+    font-size: 18px;
+    font-weight: bold;
+
+    a {
+      color: gray;
+    }
+  }
+
+  #oi-total-price {
+    color: green;
+    font-style: italic;
+  }
+}
+
+#order-show {
+  margin-top: 15px;
+}
+
+.order-pending {
+  color: purple;
+}
+
+.order-completed {
+  color: green;
+}
+
+.order-canceled {
+  color: red;
+}
+
+.order-controls {
+  a {
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #0079E3;
+    border-radius: 5px;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+  }
+}

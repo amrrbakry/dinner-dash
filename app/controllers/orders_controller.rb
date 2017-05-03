@@ -1,10 +1,10 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   def show
-    @order = current_order
+    @order = Order.find(params[:id])
   end
 
-  def index 
+  def index
     @orders = Order.all
   end
 end
