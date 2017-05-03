@@ -11,6 +11,18 @@ class Order < ApplicationRecord
     self[:status] = "canceled" if status == "processing"
   end
 
+  def paypal_url(return_path)
+    values = {
+      business: "merch@dd.com",
+      cmd: "_xclick",
+      upload: 1,
+      return: "localhost:3000#{return_path}",
+      invoice: id,
+      amount: subtotal
+    }
+    "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
+  end
+
   private
 
   def update_subtotal

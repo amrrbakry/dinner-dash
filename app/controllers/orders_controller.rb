@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_order, only: %i[show cancel_order]
+  before_action :set_order, only: %i[show cancel_order checkout]
   def show; end
 
   def index
@@ -16,6 +16,10 @@ class OrdersController < ApplicationController
       redirect_to orders_url
       flash[:alert] = "Couldn't cancel order"
     end
+  end
+
+  def checkout
+    redirect_to @order.paypal_url(orders_path)
   end
 
   private
