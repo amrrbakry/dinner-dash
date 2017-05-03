@@ -25,4 +25,5 @@ Rails.application.routes.draw do
   resource :cart, only: [:show]
   resources :order_items, only: %i[create update destroy]
   resources :orders, only: %i[index show]
+  get 'orders/:id/cancel_order', to: "orders#cancel_order", as: "cancel_order"
 end

@@ -7,6 +7,10 @@ class Order < ApplicationRecord
     order_items.collect { |oi| oi.valid? ? ((oi.quantity * oi.unit_price) + oi.total_additional_charge) : 0 }.sum
   end
 
+  def cancel
+    self[:status] = "canceled" if status == "processing"
+  end
+
   private
 
   def update_subtotal

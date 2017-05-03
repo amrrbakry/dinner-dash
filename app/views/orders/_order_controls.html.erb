@@ -1,4 +1,6 @@
-<% unless order.status == "completed" || order.status == "processing" %>
-  <a href="#">Cancel Order</a>
+<% if order.status == "processing" %>
+  <%= link_to "Cancel Order", cancel_order_path(order) %>
+<% end %>
+<% if order.status == "pending" %>  
   <a href="#">Checkout</a>
 <% end %>
