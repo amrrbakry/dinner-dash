@@ -19,16 +19,12 @@ class OrderItem < ApplicationRecord
     end
   end
 
-  # extras hold the ids of option values selected for the order item
   def total_additional_charge
-    sum = 0
-    unless extras.empty?
-      extras.each do |value_id|
-        value_charge = find_value(value_id).additional_charge
-        sum += value_charge
-      end
+    if order.status == "completed" || order.status == "processing" || order.status == "canceled"
+      self[:total_additional_charge]
+    else
+      calculate_total_additional_charge
     end
-    sum
   end
 
   def total_price
@@ -51,7 +47,20 @@ class OrderItem < ApplicationRecord
 
   def finalize
     self[:unit_price] = unit_price
+    self[:total_additional_charge] = total_additional_charge
     self[:total_price] = total_price
+  end
+
+  # extras hold the ids of option values selected for the order item
+  def calculate_total_additional_charge
+    sum = 0
+    unless extras.empty?
+      extras.each do |value_id|
+        value_charge = find_value(value_id).additional_charge
+        sum += value_charge
+      end
+    end
+    sum
   end
 
   # get all option values in order item extras

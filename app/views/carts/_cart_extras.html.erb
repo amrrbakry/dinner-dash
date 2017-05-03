@@ -5,7 +5,9 @@
       <% value = find_value(value_id) %>
       <li><h5>
         <b><%="#{value.option.name}: #{value.name}" %></b>
+        <% unless order_item.order.status == "completed" || order_item.order.status == "processing" || order_item.order.status == "canceled" %>
         <span style="color: green;"><%= "+#{number_to_currency(value.additional_charge, unit: "EGP")}" %></span>
+        <% end %>
       </h5></li>
     <% end %> 
   </ul>

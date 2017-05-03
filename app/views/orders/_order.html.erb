@@ -19,9 +19,11 @@
   </fieldset> <br />
   <fieldset id="order-oi">
     <% order.order_items.each do |oi| %>
-      <span id="oi-quantity"><%= oi.quantity %></span>
       <span id="oi-title"><%= link_to oi.item.title, item_path(oi.item) %></span> 
-      <span id="oi-total-price">total: <%= number_to_currency(oi.total_price, unit: "EGP") %></span>
+      (<span id="oi-unit-price">unit price: <%= number_to_currency(oi.unit_price, unit: "EGP") %></span> -
+      <span id="oi-quantity">Qty: <%= oi.quantity %></span> 
+      <span><% unless oi.extras.empty? %>+extras <%end%></span> --> 
+      <span id="oi-total-price">total: <%= number_to_currency(oi.total_price, unit: "EGP") %></span>)
       <br />
       <% if action_name == "show" %>
         <div class="extras">
