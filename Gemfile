@@ -32,7 +32,7 @@ gem 'turbolinks', '~> 5'
 # use bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 # use Skylight to monitor app's performance
-gem 'skylight'
+gem 'skylight', '~> 1.2', '>= 1.2.2'
 # use figaro
 gem "figaro"
 # use devise for user authentication
