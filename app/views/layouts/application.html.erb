@@ -10,7 +10,11 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
+    <% if action_name == "home" %>
+      <%= render 'layouts/header_homepage' %>
+    <% else %>
+     <%= render 'layouts/header' %>
+    <% end %>
     <div class="container-fluid wrapper">
       <%= render 'layouts/flash' %>
       <%= yield %>

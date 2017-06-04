@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'sign_in', to: 'devise/sessions#new'
   end
-  root to: "items#index"
+  root to: "static_pages#home"
   namespace :admin do
     resources :categories do
       resources :items

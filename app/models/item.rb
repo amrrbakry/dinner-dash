@@ -14,6 +14,7 @@ class Item < ApplicationRecord
   has_many :order_items
   has_many :category_items
   has_many :categories, through: :category_items
+  belongs_to :user
 
   accepts_nested_attributes_for :variations, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :options, reject_if: :all_blank, allow_destroy: true

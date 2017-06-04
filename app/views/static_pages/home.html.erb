@@ -1,0 +1,58 @@
+<div class="row homepage">
+  <div class="col-md-7">
+    <div id="introduction">
+      <h1 class="title" id="homepage-title">Groofy Market</h1>
+      <h2 class="title">the online market for green roof goods.</h2>
+      <h4 class="title"><span id="italic-groofy">Groofy</span> is one of a kind company that encourages creating a healthier environment through planting roofs with recycled water.</h4>
+    </div> <br /> <br/>
+    <div id="intro-video">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/WvfFXsJtSC0" frameborder="0" allowfullscreen></iframe>
+    </div> <br/>
+  </div>
+  <div class="col-md-4" id="join">
+    <h1>Join now to start trading your goodies...</h1> <br />
+    <%= link_to "Join Now!", new_user_session_path, class: "btn btn-primary", id: "join-btn" %>
+    <%= link_to "Download our mobile app!", new_user_session_path, class: "btn btn-primary", id: "join-btn" %>
+  </div>
+</div>
+
+<div class="row text-center homepage-explore">
+  <div class="text-center">
+  <h1>Explore our categories...</h1>
+  </div>
+    <div class="col-md-6 veges">
+      <a class="category-link" href="/categories/1">
+        <h2>vegetables</h2>
+        <figure id="veges-figure">
+          <%= image_tag "veges.png", width: 250, class: "img-responsive" %>
+        </figure>
+      </a>
+    </div>
+    <div class="col-md-6 fruits">
+      <a class="category-link" href="/categories/2">
+        <h2>fruits</h2>
+        <figure id="fruits-figure">
+          <%= image_tag "fruits.png", width: 250, class: "img-responsive" %>
+        </figure>
+      </a>
+    </div>
+</div>
+<hr>
+
+<div class="row text-center homepage-items">
+  <h1>Latest items</h1> 
+  <div class="col-md-12">
+    <%= render @items %>
+  </div> 
+</div>
+
+ <script>
+ $(window).on("scroll", function() {
+    if ($(this).scrollTop() > 70) {
+       $(".header-homepage").css("background","#7EC0EE");
+    }
+    else {
+       $(".header-homepage").css("background","transparent");
+    }
+ });
+ </script>
