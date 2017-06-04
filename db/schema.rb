@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512152315) do
+ActiveRecord::Schema.define(version: 20170604015304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170512152315) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.integer  "parent_item_id"
+    t.integer  "user_id"
     t.index ["parent_item_id"], name: "index_items_on_parent_item_id", using: :btree
     t.index ["title"], name: "index_items_on_title", using: :btree
   end
@@ -82,6 +83,7 @@ ActiveRecord::Schema.define(version: 20170512152315) do
     t.datetime "created_at",                                             null: false
     t.datetime "updated_at",                                             null: false
     t.string   "status",                             default: "pending"
+    t.integer  "user_id"
     t.index ["status"], name: "index_orders_on_status", using: :btree
   end
 
