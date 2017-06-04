@@ -15,4 +15,10 @@ class ApplicationController < ActionController::Base
       Order.new
     end
   end
+
+  protected
+
+  def after_sign_in_path_for(resource_or_scope)
+    items_path
+  end
 end
