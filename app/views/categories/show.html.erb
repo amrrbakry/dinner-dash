@@ -5,7 +5,7 @@
 			<h6><i>Category ID: <%= @category.id %></i></h6>
 			<h5><%= link_to "add item", new_admin_category_item_path(@category) %></h5>
 		<% end %>
-		<div class="category-items">
+		<div class="row category-items">
 			<%= render @category.items.all %>
 		</div>
 	</div>

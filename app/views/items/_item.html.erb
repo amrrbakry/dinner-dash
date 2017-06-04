@@ -1,7 +1,35 @@
-<% if action_name == "index" || action_name == "home" || controller_name == "categories" %>
+<% if action_name == "index" || action_name == "home" %>
   <div id="item-<%= action_name %>" class="col-md-2">
     <figure id="item-picture">
       <%= image_tag item.picture.url(:medium), width: 250, alt: item.title, class: "img-responsive" %>
+    </figure>
+    <div id="item-title">
+      <%= link_to item.title, item_path(item) %>
+    </div>
+    <div id="item-description">
+      <%= item.description %>
+    </div>
+    <div id="item-price">
+      <em><%= number_to_currency(item.price, unit: "EG") %></em>
+    </div>
+    <div id="item-categories">
+      <p><small>Categories: 
+          <% item.categories.each do |c| %>
+            <%= link_to c.title, c %>
+          <% end %> 
+      </small></p>
+    </div>
+    <% if admin_role? %>
+      <div id="admin-controls">
+        <%= link_to "Edit item", edit_admin_item_path(item) %>
+        <%= link_to "Delete item", admin_item_path(item), method: :delete, data: { confirm: "Are you sure?" } %>
+      </div>
+    <% end %> 
+  </div>
+<% elsif controller_name == "categories"  %>
+  <div id="item-<%= action_name %>" class="col-md-3">
+    <figure id="item-picture">
+      <%= image_tag item.picture.url(:medium), width: 300, alt: item.title, class: "img-responsive" %>
     </figure>
     <div id="item-title">
       <%= link_to item.title, item_path(item) %>
